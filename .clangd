@@ -1,0 +1,16 @@
+Completion:
+  CodePatterns: All
+Diagnostics:
+  ClangTidy:
+    FastCheckFilter: Strict
+  Includes:
+    AnalyzeAngledIncludes: true
+  MissingIncludes: Strict
+# Enable with Clang 22
+# Documentation:
+#   CommentFormat: Markdown
+Hover:
+  ShowAKA: false
+InlayHints:
+  BlockEnd: true
+  DefaultArguments: true

@@ -1,0 +1,10 @@
+Checks: >-
+  bugprone-*,
+  concurrency-*,
+  cppcoreguidelines-*,
+  misc-*,
+  modernize-,
+  performance-*,
+  portability-*,
+  readability-*
+FormatStyle: file
