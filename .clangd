@@ -6,7 +6,7 @@ Diagnostics:
   Includes:
     AnalyzeAngledIncludes: true
   MissingIncludes: Strict
-# Enable with Clang 22
+# FIXME: Enable with Clang 22
 # Documentation:
 #   CommentFormat: Markdown
 Hover:

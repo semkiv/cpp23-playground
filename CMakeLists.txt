@@ -11,18 +11,58 @@ project(cpp23-playground LANGUAGES CXX)
 
 include(cmake/Cpp23Playground.cmake)
 
-option(CPP23_PLAYGROUND_WITH_COMPILE_COMMANDS
-    "Controls generation of compile_commands.json file"
+set(CPP23_PLAYGROUND_TOOLS_CONCURENCY
+    "1"
+    CACHE
+    STRING
+    "Controls the number of concurrent processes that are spawned when running tools that support it"
+)
+
+set(CPP23_PLAYGROUND_LINKER_TYPE
+    "DEFAULT"
+    CACHE
+    STRING
+    "Controls which linker will be used for the link step"
+)
+
+option(CPP23_PLAYGROUND_WITH_LTO
+    "Controls the link time optimization (applicable only to Release builds)"
+    ON
+)
+
+option(CPP23_PLAYGROUND_WITH_CLANG_TIDY
+    "Controls running clang-tidy as part of the build"
     OFF
 )
-option(CPP23_PLAYGROUND_WITH_CLANG_TIDY
-    "Controls running clang-tidy as part of the build; requires compile_commands.json and thus enabling it implicitly enables the CPP23_PLAYGROUND_WITH_COMPILE_COMMANDS option"
+
+option(CPP23_PLAYGROUND_WITH_ASAN
+    "Controls AddressSanitizer"
+    OFF
+)
+
+option(CPP23_PLAYGROUND_WITH_TSAN
+    "Controls ThreadSanitizer"
+    OFF
+)
+
+option(CPP23_PLAYGROUND_WITH_MSAN
+    "Controls MemorySanitizer"
+    OFF
+)
+
+option(CPP23_PLAYGROUND_WITH_LSAN
+    "Controls LeakSanitizer"
+    OFF
+)
+
+option(CPP23_PLAYGROUND_WITH_UBSAN
+    "Controls UndefinedBehaviorSanitizer"
     OFF
 )
 
 if(CPP23_PLAYGROUND_WITH_CLANG_TIDY)
-    set(CPP23_PLAYGROUND_WITH_COMPILE_COMMANDS ON)
     find_program(CPP23_PLAYGROUND_CLANG_TIDY NAMES "clang-tidy" REQUIRED)
+    find_program(CPP23_PLAYGROUND_RUN_CLANG_TIDY NAMES "run-clang-tidy")
 endif()
 
 add_subdirectory(src)
