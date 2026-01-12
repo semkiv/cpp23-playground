@@ -1,0 +1,433 @@
+{
+    "$comment": "A toy CMakePresets.json file",
+    "$schema": "https://cmake.org/cmake/help/v4.2/_downloads/3e2d73bff478d88a7de0de736ba5e361/schema.json",
+    "version": 10,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 31,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "$comment": [
+                "Base preset"
+            ],
+            "name": "base",
+            "hidden": true,
+            "binaryDir": "${sourceDir}/build/${presetName}"
+        },
+        {
+            "name": "unix-only",
+            "hidden": true,
+            "condition": {
+                "type": "inList",
+                "string": "${hostSystemName}",
+                "list": [
+                    "CYGWIN",
+                    "Linux"
+                ]
+            }
+        },
+        {
+            "name": "win-only",
+            "hidden": true,
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "ninja-base",
+            "inherits": [
+                "base"
+            ],
+            "hidden": true,
+            "environment": {
+                "NINJA_STATUS": "[%f/%t (%P) :: %w] "
+            }
+        },
+        {
+            "name": "ninja",
+            "inherits": [
+                "ninja-base"
+            ],
+            "hidden": true,
+            "generator": "Ninja"
+        },
+        {
+            "name": "ninja-multi",
+            "inherits": [
+                "ninja-base"
+            ],
+            "hidden": true,
+            "generator": "Ninja Multi-Config"
+        },
+        {
+            "name": "gcc",
+            "inherits": [
+                "unix-only"
+            ],
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "g++"
+            }
+        },
+        {
+            "name": "clang",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "clang++"
+            }
+        },
+        {
+            "name": "clang-cl",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "clang-cl"
+            }
+        },
+        {
+            "name": "msvc",
+            "inherits": [
+                "base",
+                "win-only"
+            ],
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "cl"
+            }
+        },
+        {
+            "name": "debug",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "rel-with-deb-info",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        },
+        {
+            "name": "release",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "ninja-debug-clang",
+            "displayName": "Ninja (Clang, Debug)",
+            "description": "Ninja project (compiled with Clang in Debug configuration)",
+            "inherits": [
+                "ninja",
+                "debug",
+                "clang"
+            ]
+        },
+        {
+            "name": "ninja-rel-with-deb-info-clang",
+            "displayName": "Ninja (Clang, RelWithDebInfo)",
+            "description": "Ninja project (compiled with Clang in RelWithDebInfo configuration)",
+            "inherits": [
+                "ninja",
+                "rel-with-deb-info",
+                "clang"
+            ]
+        },
+        {
+            "name": "ninja-release-clang",
+            "displayName": "Ninja (Clang, Release)",
+            "description": "Ninja project (compiled with Clang in Release configuration)",
+            "inherits": [
+                "ninja",
+                "clang",
+                "release"
+            ]
+        },
+        {
+            "name": "ninja-debug-clang-cl",
+            "displayName": "Ninja (Clang-CL, Debug)",
+            "description": "Ninja project (compiled with Clang-CL in Debug configuration)",
+            "inherits": [
+                "ninja",
+                "debug",
+                "clang-cl"
+            ]
+        },
+        {
+            "name": "ninja-rel-with-deb-info-clang-cl",
+            "displayName": "Ninja (Clang-CL, RelWithDebInfo)",
+            "description": "Ninja project (compiled with Clang-CL in RelWithDebInfo configuration)",
+            "inherits": [
+                "ninja",
+                "rel-with-deb-info",
+                "clang-cl"
+            ]
+        },
+        {
+            "name": "ninja-release-clang-cl",
+            "displayName": "Ninja (Clang-CL, Release)",
+            "description": "Ninja project (compiled with Clang-CL in Release configuration)",
+            "inherits": [
+                "ninja",
+                "clang-cl",
+                "release"
+            ]
+        },
+        {
+            "name": "ninja-debug-gcc",
+            "displayName": "Ninja (GCC, Debug)",
+            "description": "Ninja project (compiled with GCC in Debug configuration)",
+            "inherits": [
+                "ninja",
+                "debug",
+                "gcc"
+            ]
+        },
+        {
+            "name": "ninja-rel-with-deb-info-gcc",
+            "displayName": "Ninja (GCC, RelWithDebInfo)",
+            "description": "Ninja project (compiled with GCC in RelWithDebInfo configuration)",
+            "inherits": [
+                "ninja",
+                "rel-with-deb-info",
+                "gcc"
+            ]
+        },
+        {
+            "name": "ninja-release-gcc",
+            "displayName": "Ninja (GCC, Release)",
+            "description": "Ninja project (compiled with GCC in Release configuration)",
+            "inherits": [
+                "ninja",
+                "release",
+                "gcc"
+            ]
+        },
+        {
+            "name": "ninja-debug-msvc",
+            "displayName": "Ninja (MSVC, Debug)",
+            "description": "Ninja project (compiled with MSVC in Debug configuration)",
+            "inherits": [
+                "ninja",
+                "debug",
+                "msvc"
+            ]
+        },
+        {
+            "name": "ninja-rel-with-deb-info-msvc",
+            "displayName": "Ninja (MSVC, RelWithDebInfo)",
+            "description": "Ninja project (compiled with MSVC in RelWithDebInfo configuration)",
+            "inherits": [
+                "ninja",
+                "rel-with-deb-info",
+                "msvc"
+            ]
+        },
+        {
+            "name": "ninja-release-msvc",
+            "displayName": "Ninja (MSVC, Release)",
+            "description": "Ninja project (compiled with MSVC in Release configuration)",
+            "inherits": [
+                "ninja",
+                "release",
+                "msvc"
+            ]
+        },
+        {
+            "name": "ninja-multi-clang",
+            "displayName": "Ninja Multi-Config (Clang)",
+            "description": "Ninja project (compiled with Clang)",
+            "inherits": [
+                "ninja-multi",
+                "clang"
+            ]
+        },
+        {
+            "name": "ninja-multi-clang-cl",
+            "displayName": "Ninja Multi-Config (Clang-CL)",
+            "description": "Ninja project (compiled with Clang-CL)",
+            "inherits": [
+                "ninja-multi",
+                "clang-cl"
+            ]
+        },
+        {
+            "name": "ninja-multi-gcc",
+            "displayName": "Ninja Multi-Config (GCC)",
+            "description": "Ninja project (compiled with GCC)",
+            "inherits": [
+                "ninja-multi",
+                "gcc"
+            ]
+        },
+        {
+            "name": "ninja-multi-msvc",
+            "displayName": "Ninja Multi-Config (MSVC)",
+            "description": "Ninja project (compiled with MSVC)",
+            "inherits": [
+                "ninja-multi",
+                "msvc"
+            ]
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "ninja",
+            "hidden": true,
+            "nativeToolOptions": [
+                "-k",
+                "0"
+            ]
+        },
+        {
+            "name": "ninja-debug-clang",
+            "displayName": "Ninja (Clang, Debug)",
+            "description": "Ninja project (compiled with Clang in Debug configuration)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-clang"
+        },
+        {
+            "name": "ninja-rel-with-deb-info-clang",
+            "displayName": "Ninja (Clang, RelWithDebInfo)",
+            "description": "Ninja project (compiled with Clang in RelWithDebInfo configuration)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-rel-with-deb-info-clang"
+        },
+        {
+            "name": "ninja-release-clang",
+            "displayName": "Ninja (Clang, Release)",
+            "description": "Ninja project (compiled with Clang in Release configuration)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-release-clang"
+        },
+        {
+            "name": "ninja-debug-clang-cl",
+            "displayName": "Ninja (Clang-CL, Debug)",
+            "description": "Ninja project (compiled with Clang-CL in Debug configuration)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-clang-cl"
+        },
+        {
+            "name": "ninja-rel-with-deb-info-clang-cl",
+            "displayName": "Ninja (Clang-CL, RelWithDebInfo)",
+            "description": "Ninja project (compiled with Clang-CL in RelWithDebInfo configuration)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-rel-with-deb-info-clang-cl"
+        },
+        {
+            "name": "ninja-release-clang-cl",
+            "displayName": "Ninja (Clang-CL, Release)",
+            "description": "Ninja project (compiled with Clang-CL in Release configuration)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-release-clang-cl"
+        },
+        {
+            "name": "ninja-debug-gcc",
+            "displayName": "Ninja (GCC, Debug)",
+            "description": "Ninja project (compiled with GCC in Debug configuration)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-gcc"
+        },
+        {
+            "name": "ninja-rel-with-deb-info-gcc",
+            "displayName": "Ninja (GCC, RelWithDebInfo)",
+            "description": "Ninja project (compiled with GCC in RelWithDebInfo configuration)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-rel-with-deb-info-gcc"
+        },
+        {
+            "name": "ninja-release-gcc",
+            "displayName": "Ninja (GCC, Release)",
+            "description": "Ninja project (compiled with GCC in Release configuration)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-release-clang-cl"
+        },
+        {
+            "name": "ninja-debug-msvc",
+            "displayName": "Ninja (MSVC, Debug)",
+            "description": "Ninja project (compiled with MSVC in Debug configuration)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-msvc"
+        },
+        {
+            "name": "ninja-rel-with-deb-info-msvc",
+            "displayName": "Ninja (MSVC, RelWithDebInfo)",
+            "description": "Ninja project (compiled with MSVC in RelWithDebInfo configuration)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-rel-with-deb-info-msvc"
+        },
+        {
+            "name": "ninja-release-msvc",
+            "displayName": "Ninja (MSVC, Release)",
+            "description": "Ninja project (compiled with MSVC in Release configuration)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-release-msvc"
+        },
+        {
+            "name": "ninja-multi-clang",
+            "displayName": "Ninja Multi-Config (Clang)",
+            "description": "Ninja project (compiled with Clang)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-multi-clang"
+        },
+        {
+            "name": "ninja-multi-clang-cl",
+            "displayName": "Ninja Multi-Config (Clang-CL)",
+            "description": "Ninja project (compiled with Clang-CL)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-multi-clang-cl"
+        },
+        {
+            "name": "ninja-multi-gcc",
+            "displayName": "Ninja Multi-Config (GCC)",
+            "description": "Ninja project (compiled with GCC)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-multi-gcc"
+        },
+        {
+            "name": "ninja-multi-msvc",
+            "displayName": "Ninja Multi-Config (MSVC)",
+            "description": "Ninja project (compiled with MSVC)",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-multi-msvc"
+        }
+    ]
+}
