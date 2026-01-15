@@ -4,7 +4,12 @@
 import std;
 
 auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int {
-    auto jt = std::jthread{[] { std::println("Hello, C++23 world!"); }};
+    const auto greeter_thread = std::jthread{[] {
+        // clang-tidy does not realize that 'import std' is sufficient for 'std::println' and
+        // recommends including '<print>'
+        // NOLINTNEXTLINE(misc-include-cleaner)
+        std::println("Hello, C++23 world!");
+    }};
 
     return EXIT_SUCCESS;
 }

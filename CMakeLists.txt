@@ -58,11 +58,6 @@ option(CPP23_PLAYGROUND_WITH_UBSAN
     OFF
 )
 
-option(CPP23_PLAYGROUND_ENABLE_IPO
-    "Enable IPO/LTO (Release builds only)"
-    ON
-)
-
 if(CPP23_PLAYGROUND_WITH_CLANG_TIDY)
     find_program(CPP23_PLAYGROUND_CLANG_TIDY NAMES "clang-tidy" REQUIRED)
     find_program(CPP23_PLAYGROUND_RUN_CLANG_TIDY NAMES "run-clang-tidy")

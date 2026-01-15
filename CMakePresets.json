@@ -106,7 +106,7 @@
             }
         },
         {
-            "name": "rel-with-deb-info",
+            "name": "relwithdebinfo",
             "hidden": true,
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
@@ -120,6 +120,48 @@
             }
         },
         {
+            "name": "tidy",
+            "hidden": true,
+            "cacheVariables": {
+                "CPP23_PLAYGROUND_WITH_CLANG_TIDY": "ON"
+            }
+        },
+        {
+            "name": "asan",
+            "hidden": true,
+            "cacheVariables": {
+                "CPP23_PLAYGROUND_WITH_ASAN": "ON"
+            }
+        },
+        {
+            "name": "tsan",
+            "hidden": true,
+            "cacheVariables": {
+                "CPP23_PLAYGROUND_WITH_TSAN": "ON"
+            }
+        },
+        {
+            "name": "msan",
+            "hidden": true,
+            "cacheVariables": {
+                "CPP23_PLAYGROUND_WITH_MSAN": "ON"
+            }
+        },
+        {
+            "name": "lsan",
+            "hidden": true,
+            "cacheVariables": {
+                "CPP23_PLAYGROUND_WITH_LSAN": "ON"
+            }
+        },
+        {
+            "name": "ubsan",
+            "hidden": true,
+            "cacheVariables": {
+                "CPP23_PLAYGROUND_WITH_UBSAN": "ON"
+            }
+        },
+        {
             "name": "ninja-debug-clang",
             "displayName": "Ninja (Clang, Debug)",
             "description": "Ninja project (compiled with Clang in Debug configuration)",
@@ -130,13 +172,134 @@
             ]
         },
         {
-            "name": "ninja-rel-with-deb-info-clang",
+            "name": "ninja-debug-clang-tidy",
+            "displayName": "Ninja (Clang, Debug), clang-tidy",
+            "description": "Ninja project (compiled with Clang in Debug configuration) with clang-tidy",
+            "inherits": [
+                "ninja",
+                "debug",
+                "clang",
+                "tidy"
+            ]
+        },
+        {
+            "name": "ninja-debug-clang-asan",
+            "displayName": "Ninja (Clang, Debug), ASAN",
+            "description": "Ninja project (compiled with Clang in Debug configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "clang",
+                "asan"
+            ]
+        },
+        {
+            "name": "ninja-debug-clang-tsan",
+            "displayName": "Ninja (Clang, Debug), TSAN",
+            "description": "Ninja project (compiled with Clang in Debug configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "clang",
+                "tsan"
+            ]
+        },
+        {
+            "name": "ninja-debug-clang-msan",
+            "displayName": "Ninja (Clang, Debug), MSAN",
+            "description": "Ninja project (compiled with Clang in Debug configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "clang",
+                "msan"
+            ]
+        },
+        {
+            "name": "ninja-debug-clang-lsan",
+            "displayName": "Ninja (Clang, Debug), LSAN",
+            "description": "Ninja project (compiled with Clang in Debug configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "clang",
+                "lsan"
+            ]
+        },
+        {
+            "name": "ninja-debug-clang-ubsan",
+            "displayName": "Ninja (Clang, Debug), UBSAN",
+            "description": "Ninja project (compiled with Clang in Debug configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "clang",
+                "ubsan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang",
             "displayName": "Ninja (Clang, RelWithDebInfo)",
             "description": "Ninja project (compiled with Clang in RelWithDebInfo configuration)",
             "inherits": [
                 "ninja",
-                "rel-with-deb-info",
+                "relwithdebinfo",
                 "clang"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-asan",
+            "displayName": "Ninja (Clang, RelWithDebInfo), ASAN",
+            "description": "Ninja project (compiled with Clang in RelWithDebInfo configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "clang",
+                "asan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-tsan",
+            "displayName": "Ninja (Clang, RelWithDebInfo), TSAN",
+            "description": "Ninja project (compiled with Clang in RelWithDebInfo configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "clang",
+                "tsan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-msan",
+            "displayName": "Ninja (Clang, RelWithDebInfo), MSAN",
+            "description": "Ninja project (compiled with Clang in RelWithDebInfo configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "clang",
+                "msan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-lsan",
+            "displayName": "Ninja (Clang, RelWithDebInfo), LSAN",
+            "description": "Ninja project (compiled with Clang in RelWithDebInfo configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "clang",
+                "lsan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-ubsan",
+            "displayName": "Ninja (Clang, RelWithDebInfo), UBSAN",
+            "description": "Ninja project (compiled with Clang in RelWithDebInfo configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "clang",
+                "ubsan"
             ]
         },
         {
@@ -160,13 +323,134 @@
             ]
         },
         {
-            "name": "ninja-rel-with-deb-info-clang-cl",
+            "name": "ninja-debug-clang-cl-tidy",
+            "displayName": "Ninja (Clang-CL, Debug), clang-tidy",
+            "description": "Ninja project (compiled with Clang-CL in Debug configuration) with clang-tidy",
+            "inherits": [
+                "ninja",
+                "debug",
+                "clang-cl",
+                "tidy"
+            ]
+        },
+        {
+            "name": "ninja-debug-clang-cl-asan",
+            "displayName": "Ninja (Clang-CL, Debug), ASAN",
+            "description": "Ninja project (compiled with Clang-CL in Debug configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "clang-cl",
+                "asan"
+            ]
+        },
+        {
+            "name": "ninja-debug-clang-cl-tsan",
+            "displayName": "Ninja (Clang-CL, Debug), TSAN",
+            "description": "Ninja project (compiled with Clang-CL in Debug configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "clang-cl",
+                "tsan"
+            ]
+        },
+        {
+            "name": "ninja-debug-clang-cl-msan",
+            "displayName": "Ninja (Clang-CL, Debug), MSAN",
+            "description": "Ninja project (compiled with Clang-CL in Debug configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "clang-cl",
+                "msan"
+            ]
+        },
+        {
+            "name": "ninja-debug-clang-cl-lsan",
+            "displayName": "Ninja (Clang-CL, Debug), LSAN",
+            "description": "Ninja project (compiled with Clang-CL in Debug configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "clang-cl",
+                "lsan"
+            ]
+        },
+        {
+            "name": "ninja-debug-clang-cl-ubsan",
+            "displayName": "Ninja (Clang-CL, Debug), UBSAN",
+            "description": "Ninja project (compiled with Clang-CL in Debug configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "clang-cl",
+                "ubsan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-cl",
             "displayName": "Ninja (Clang-CL, RelWithDebInfo)",
             "description": "Ninja project (compiled with Clang-CL in RelWithDebInfo configuration)",
             "inherits": [
                 "ninja",
-                "rel-with-deb-info",
+                "relwithdebinfo",
                 "clang-cl"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-cl-asan",
+            "displayName": "Ninja (Clang-CL, RelWithDebInfo), ASAN",
+            "description": "Ninja project (compiled with Clang-CL in RelWithDebInfo configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "clang-cl",
+                "asan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-cl-tsan",
+            "displayName": "Ninja (Clang-CL, RelWithDebInfo), TSAN",
+            "description": "Ninja project (compiled with Clang-CL in RelWithDebInfo configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "clang-cl",
+                "tsan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-cl-msan",
+            "displayName": "Ninja (Clang-CL, RelWithDebInfo), MSAN",
+            "description": "Ninja project (compiled with Clang-CL in RelWithDebInfo configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "clang-cl",
+                "msan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-cl-lsan",
+            "displayName": "Ninja (Clang-CL, RelWithDebInfo), LSAN",
+            "description": "Ninja project (compiled with Clang-CL in RelWithDebInfo configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "clang-cl",
+                "lsan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-cl-ubsan",
+            "displayName": "Ninja (Clang-CL, RelWithDebInfo), UBSAN",
+            "description": "Ninja project (compiled with Clang-CL in RelWithDebInfo configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "clang-cl",
+                "ubsan"
             ]
         },
         {
@@ -190,13 +474,134 @@
             ]
         },
         {
-            "name": "ninja-rel-with-deb-info-gcc",
+            "name": "ninja-debug-gcc-tidy",
+            "displayName": "Ninja (GCC, Debug), clang-tidy",
+            "description": "Ninja project (compiled with GCC in Debug configuration) with clang-tidy",
+            "inherits": [
+                "ninja",
+                "debug",
+                "gcc",
+                "tidy"
+            ]
+        },
+        {
+            "name": "ninja-debug-gcc-asan",
+            "displayName": "Ninja (GCC, Debug), ASAN",
+            "description": "Ninja project (compiled with GCC in Debug configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "gcc",
+                "asan"
+            ]
+        },
+        {
+            "name": "ninja-debug-gcc-tsan",
+            "displayName": "Ninja (GCC, Debug), TSAN",
+            "description": "Ninja project (compiled with GCC in Debug configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "gcc",
+                "tsan"
+            ]
+        },
+        {
+            "name": "ninja-debug-gcc-msan",
+            "displayName": "Ninja (GCC, Debug), MSAN",
+            "description": "Ninja project (compiled with GCC in Debug configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "gcc",
+                "msan"
+            ]
+        },
+        {
+            "name": "ninja-debug-gcc-lsan",
+            "displayName": "Ninja (GCC, Debug), LSAN",
+            "description": "Ninja project (compiled with GCC in Debug configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "gcc",
+                "lsan"
+            ]
+        },
+        {
+            "name": "ninja-debug-gcc-ubsan",
+            "displayName": "Ninja (GCC, Debug), UBSAN",
+            "description": "Ninja project (compiled with GCC in Debug configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "gcc",
+                "ubsan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-gcc",
             "displayName": "Ninja (GCC, RelWithDebInfo)",
             "description": "Ninja project (compiled with GCC in RelWithDebInfo configuration)",
             "inherits": [
                 "ninja",
-                "rel-with-deb-info",
+                "relwithdebinfo",
                 "gcc"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-gcc-asan",
+            "displayName": "Ninja (GCC, RelWithDebInfo), ASAN",
+            "description": "Ninja project (compiled with GCC in RelWithDebInfo configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "gcc",
+                "asan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-gcc-tsan",
+            "displayName": "Ninja (GCC, RelWithDebInfo), TSAN",
+            "description": "Ninja project (compiled with GCC in RelWithDebInfo configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "gcc",
+                "tsan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-gcc-msan",
+            "displayName": "Ninja (GCC, RelWithDebInfo), MSAN",
+            "description": "Ninja project (compiled with GCC in RelWithDebInfo configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "gcc",
+                "msan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-gcc-lsan",
+            "displayName": "Ninja (GCC, RelWithDebInfo), LSAN",
+            "description": "Ninja project (compiled with GCC in RelWithDebInfo configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "gcc",
+                "lsan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-gcc-ubsan",
+            "displayName": "Ninja (GCC, RelWithDebInfo), UBSAN",
+            "description": "Ninja project (compiled with GCC in RelWithDebInfo configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "gcc",
+                "ubsan"
             ]
         },
         {
@@ -220,13 +625,134 @@
             ]
         },
         {
-            "name": "ninja-rel-with-deb-info-msvc",
+            "name": "ninja-debug-msvc-tidy",
+            "displayName": "Ninja (MSVC, Debug), clang-tidy",
+            "description": "Ninja project (compiled with MSVC in Debug configuration) with clang-tidy",
+            "inherits": [
+                "ninja",
+                "debug",
+                "msvc",
+                "tidy"
+            ]
+        },
+        {
+            "name": "ninja-debug-msvc-asan",
+            "displayName": "Ninja (MSVC, Debug), ASAN",
+            "description": "Ninja project (compiled with MSVC in Debug configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "msvc",
+                "asan"
+            ]
+        },
+        {
+            "name": "ninja-debug-msvc-tsan",
+            "displayName": "Ninja (MSVC, Debug), TSAN",
+            "description": "Ninja project (compiled with MSVC in Debug configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "msvc",
+                "tsan"
+            ]
+        },
+        {
+            "name": "ninja-debug-msvc-msan",
+            "displayName": "Ninja (MSVC, Debug), MSAN",
+            "description": "Ninja project (compiled with MSVC in Debug configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "msvc",
+                "msan"
+            ]
+        },
+        {
+            "name": "ninja-debug-msvc-lsan",
+            "displayName": "Ninja (MSVC, Debug), LSAN",
+            "description": "Ninja project (compiled with MSVC in Debug configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "msvc",
+                "lsan"
+            ]
+        },
+        {
+            "name": "ninja-debug-msvc-ubsan",
+            "displayName": "Ninja (MSVC, Debug), UBSAN",
+            "description": "Ninja project (compiled with MSVC in Debug configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja",
+                "debug",
+                "msvc",
+                "ubsan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-msvc",
             "displayName": "Ninja (MSVC, RelWithDebInfo)",
             "description": "Ninja project (compiled with MSVC in RelWithDebInfo configuration)",
             "inherits": [
                 "ninja",
-                "rel-with-deb-info",
+                "relwithdebinfo",
                 "msvc"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-msvc-asan",
+            "displayName": "Ninja (MSVC, RelWithDebInfo), ASAN",
+            "description": "Ninja project (compiled with MSVC in RelWithDebInfo configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "msvc",
+                "asan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-msvc-tsan",
+            "displayName": "Ninja (MSVC, RelWithDebInfo), TSAN",
+            "description": "Ninja project (compiled with MSVC in RelWithDebInfo configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "msvc",
+                "tsan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-msvc-msan",
+            "displayName": "Ninja (MSVC, RelWithDebInfo), MSAN",
+            "description": "Ninja project (compiled with MSVC in RelWithDebInfo configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "msvc",
+                "msan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-msvc-lsan",
+            "displayName": "Ninja (MSVC, RelWithDebInfo), LSAN",
+            "description": "Ninja project (compiled with MSVC in RelWithDebInfo configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "msvc",
+                "lsan"
+            ]
+        },
+        {
+            "name": "ninja-relwithdebinfo-msvc-ubsan",
+            "displayName": "Ninja (MSVC, RelWithDebInfo), UBSAN",
+            "description": "Ninja project (compiled with MSVC in RelWithDebInfo configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja",
+                "relwithdebinfo",
+                "msvc",
+                "ubsan"
             ]
         },
         {
@@ -280,6 +806,9 @@
         {
             "name": "ninja",
             "hidden": true,
+            "environment": {
+                "NINJA_STATUS": "[%f/%t (%P) :: %w] "
+            },
             "nativeToolOptions": [
                 "-k",
                 "0"
@@ -295,13 +824,112 @@
             "configurePreset": "ninja-debug-clang"
         },
         {
-            "name": "ninja-rel-with-deb-info-clang",
+            "name": "ninja-debug-clang-tidy",
+            "displayName": "Ninja (Clang, Debug), clang-tidy",
+            "description": "Ninja project (compiled with Clang in Debug configuration) with clang-tidy",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-clang-tidy"
+        },
+        {
+            "name": "ninja-debug-clang-asan",
+            "displayName": "Ninja (Clang, Debug), ASAN",
+            "description": "Ninja project (compiled with Clang in Debug configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-clang-asan"
+        },
+        {
+            "name": "ninja-debug-clang-tsan",
+            "displayName": "Ninja (Clang, Debug), TSAN",
+            "description": "Ninja project (compiled with Clang in Debug configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-clang-tsan"
+        },
+        {
+            "name": "ninja-debug-clang-msan",
+            "displayName": "Ninja (Clang, Debug), MSAN",
+            "description": "Ninja project (compiled with Clang in Debug configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-clang-msan"
+        },
+        {
+            "name": "ninja-debug-clang-lsan",
+            "displayName": "Ninja (Clang, Debug), LSAN",
+            "description": "Ninja project (compiled with Clang in Debug configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-clang-lsan"
+        },
+        {
+            "name": "ninja-debug-clang-ubsan",
+            "displayName": "Ninja (Clang, Debug), UBSAN",
+            "description": "Ninja project (compiled with Clang in Debug configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-clang-ubsan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang",
             "displayName": "Ninja (Clang, RelWithDebInfo)",
             "description": "Ninja project (compiled with Clang in RelWithDebInfo configuration)",
             "inherits": [
                 "ninja"
             ],
-            "configurePreset": "ninja-rel-with-deb-info-clang"
+            "configurePreset": "ninja-relwithdebinfo-clang"
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-asan",
+            "displayName": "Ninja (Clang, RelWithDebInfo), ASAN",
+            "description": "Ninja project (compiled with Clang in RelWithDebInfo configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-clang-asan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-tsan",
+            "displayName": "Ninja (Clang, RelWithDebInfo), TSAN",
+            "description": "Ninja project (compiled with Clang in RelWithDebInfo configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-clang-tsan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-msan",
+            "displayName": "Ninja (Clang, RelWithDebInfo), MSAN",
+            "description": "Ninja project (compiled with Clang in RelWithDebInfo configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-clang-msan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-lsan",
+            "displayName": "Ninja (Clang, RelWithDebInfo), LSAN",
+            "description": "Ninja project (compiled with Clang in RelWithDebInfo configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-clang-lsan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-ubsan",
+            "displayName": "Ninja (Clang, RelWithDebInfo), UBSAN",
+            "description": "Ninja project (compiled with Clang in RelWithDebInfo configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-clang-ubsan"
         },
         {
             "name": "ninja-release-clang",
@@ -322,13 +950,112 @@
             "configurePreset": "ninja-debug-clang-cl"
         },
         {
-            "name": "ninja-rel-with-deb-info-clang-cl",
+            "name": "ninja-debug-clang-cl-tidy",
+            "displayName": "Ninja (Clang-CL, Debug), clang-tidy",
+            "description": "Ninja project (compiled with Clang-CL in Debug configuration) with clang-tidy",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-clang-cl-tidy"
+        },
+        {
+            "name": "ninja-debug-clang-cl-asan",
+            "displayName": "Ninja (Clang-CL, Debug), ASAN",
+            "description": "Ninja project (compiled with Clang-CL in Debug configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-clang-cl-asan"
+        },
+        {
+            "name": "ninja-debug-clang-cl-tsan",
+            "displayName": "Ninja (Clang-CL, Debug), TSAN",
+            "description": "Ninja project (compiled with Clang-CL in Debug configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-clang-cl-tsan"
+        },
+        {
+            "name": "ninja-debug-clang-cl-msan",
+            "displayName": "Ninja (Clang-CL, Debug), MSAN",
+            "description": "Ninja project (compiled with Clang-CL in Debug configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-clang-cl-msan"
+        },
+        {
+            "name": "ninja-debug-clang-cl-lsan",
+            "displayName": "Ninja (Clang-CL, Debug), LSAN",
+            "description": "Ninja project (compiled with Clang-CL in Debug configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-clang-cl-lsan"
+        },
+        {
+            "name": "ninja-debug-clang-cl-ubsan",
+            "displayName": "Ninja (Clang-CL, Debug), UBSAN",
+            "description": "Ninja project (compiled with Clang-CL in Debug configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-clang-cl-ubsan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-cl",
             "displayName": "Ninja (Clang-CL, RelWithDebInfo)",
             "description": "Ninja project (compiled with Clang-CL in RelWithDebInfo configuration)",
             "inherits": [
                 "ninja"
             ],
-            "configurePreset": "ninja-rel-with-deb-info-clang-cl"
+            "configurePreset": "ninja-relwithdebinfo-clang-cl"
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-cl-asan",
+            "displayName": "Ninja (Clang-CL, RelWithDebInfo), ASAN",
+            "description": "Ninja project (compiled with Clang-CL in RelWithDebInfo configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-clang-cl-asan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-cl-tsan",
+            "displayName": "Ninja (Clang-CL, RelWithDebInfo), TSAN",
+            "description": "Ninja project (compiled with Clang-CL in RelWithDebInfo configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-clang-cl-tsan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-cl-msan",
+            "displayName": "Ninja (Clang-CL, RelWithDebInfo), MSAN",
+            "description": "Ninja project (compiled with Clang-CL in RelWithDebInfo configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-clang-cl-msan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-cl-lsan",
+            "displayName": "Ninja (Clang-CL, RelWithDebInfo), LSAN",
+            "description": "Ninja project (compiled with Clang-CL in RelWithDebInfo configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-clang-cl-lsan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-clang-cl-ubsan",
+            "displayName": "Ninja (Clang-CL, RelWithDebInfo), UBSAN",
+            "description": "Ninja project (compiled with Clang-CL in RelWithDebInfo configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-clang-cl-ubsan"
         },
         {
             "name": "ninja-release-clang-cl",
@@ -349,13 +1076,112 @@
             "configurePreset": "ninja-debug-gcc"
         },
         {
-            "name": "ninja-rel-with-deb-info-gcc",
+            "name": "ninja-debug-gcc-tidy",
+            "displayName": "Ninja (GCC, Debug), clang-tidy",
+            "description": "Ninja project (compiled with GCC in Debug configuration) with clang-tidy",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-gcc-tidy"
+        },
+        {
+            "name": "ninja-debug-gcc-asan",
+            "displayName": "Ninja (GCC, Debug), ASAN",
+            "description": "Ninja project (compiled with GCC in Debug configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-gcc-asan"
+        },
+        {
+            "name": "ninja-debug-gcc-tsan",
+            "displayName": "Ninja (GCC, Debug), TSAN",
+            "description": "Ninja project (compiled with GCC in Debug configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-gcc-tsan"
+        },
+        {
+            "name": "ninja-debug-gcc-msan",
+            "displayName": "Ninja (GCC, Debug), MSAN",
+            "description": "Ninja project (compiled with GCC in Debug configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-gcc-msan"
+        },
+        {
+            "name": "ninja-debug-gcc-lsan",
+            "displayName": "Ninja (GCC, Debug), LSAN",
+            "description": "Ninja project (compiled with GCC in Debug configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-gcc-lsan"
+        },
+        {
+            "name": "ninja-debug-gcc-ubsan",
+            "displayName": "Ninja (GCC, Debug), UBSAN",
+            "description": "Ninja project (compiled with GCC in Debug configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-gcc-ubsan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-gcc",
             "displayName": "Ninja (GCC, RelWithDebInfo)",
             "description": "Ninja project (compiled with GCC in RelWithDebInfo configuration)",
             "inherits": [
                 "ninja"
             ],
-            "configurePreset": "ninja-rel-with-deb-info-gcc"
+            "configurePreset": "ninja-relwithdebinfo-gcc"
+        },
+        {
+            "name": "ninja-relwithdebinfo-gcc-asan",
+            "displayName": "Ninja (GCC, RelWithDebInfo), ASAN",
+            "description": "Ninja project (compiled with GCC in RelWithDebInfo configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-gcc-asan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-gcc-tsan",
+            "displayName": "Ninja (GCC, RelWithDebInfo), TSAN",
+            "description": "Ninja project (compiled with GCC in RelWithDebInfo configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-gcc-tsan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-gcc-msan",
+            "displayName": "Ninja (GCC, RelWithDebInfo), MSAN",
+            "description": "Ninja project (compiled with GCC in RelWithDebInfo configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-gcc-msan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-gcc-lsan",
+            "displayName": "Ninja (GCC, RelWithDebInfo), LSAN",
+            "description": "Ninja project (compiled with GCC in RelWithDebInfo configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-gcc-lsan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-gcc-ubsan",
+            "displayName": "Ninja (GCC, RelWithDebInfo), UBSAN",
+            "description": "Ninja project (compiled with GCC in RelWithDebInfo configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-gcc-ubsan"
         },
         {
             "name": "ninja-release-gcc",
@@ -376,13 +1202,112 @@
             "configurePreset": "ninja-debug-msvc"
         },
         {
-            "name": "ninja-rel-with-deb-info-msvc",
+            "name": "ninja-debug-msvc-tidy",
+            "displayName": "Ninja (MSVC, Debug), clang-tidy",
+            "description": "Ninja project (compiled with MSVC in Debug configuration) with clang-tidy",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-msvc-tidy"
+        },
+        {
+            "name": "ninja-debug-msvc-asan",
+            "displayName": "Ninja (MSVC, Debug), ASAN",
+            "description": "Ninja project (compiled with MSVC in Debug configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-msvc-asan"
+        },
+        {
+            "name": "ninja-debug-msvc-tsan",
+            "displayName": "Ninja (MSVC, Debug), TSAN",
+            "description": "Ninja project (compiled with MSVC in Debug configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-msvc-tsan"
+        },
+        {
+            "name": "ninja-debug-msvc-msan",
+            "displayName": "Ninja (MSVC, Debug), MSAN",
+            "description": "Ninja project (compiled with MSVC in Debug configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-msvc-msan"
+        },
+        {
+            "name": "ninja-debug-msvc-lsan",
+            "displayName": "Ninja (MSVC, Debug), LSAN",
+            "description": "Ninja project (compiled with MSVC in Debug configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-msvc-lsan"
+        },
+        {
+            "name": "ninja-debug-msvc-ubsan",
+            "displayName": "Ninja (MSVC, Debug), UBSAN",
+            "description": "Ninja project (compiled with MSVC in Debug configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-debug-msvc-ubsan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-msvc",
             "displayName": "Ninja (MSVC, RelWithDebInfo)",
             "description": "Ninja project (compiled with MSVC in RelWithDebInfo configuration)",
             "inherits": [
                 "ninja"
             ],
-            "configurePreset": "ninja-rel-with-deb-info-msvc"
+            "configurePreset": "ninja-relwithdebinfo-msvc"
+        },
+        {
+            "name": "ninja-relwithdebinfo-msvc-asan",
+            "displayName": "Ninja (MSVC, RelWithDebInfo), ASAN",
+            "description": "Ninja project (compiled with MSVC in RelWithDebInfo configuration) with AddressSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-msvc-asan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-msvc-tsan",
+            "displayName": "Ninja (MSVC, RelWithDebInfo), TSAN",
+            "description": "Ninja project (compiled with MSVC in RelWithDebInfo configuration) with ThreadSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-msvc-tsan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-msvc-msan",
+            "displayName": "Ninja (MSVC, RelWithDebInfo), MSAN",
+            "description": "Ninja project (compiled with MSVC in RelWithDebInfo configuration) with MemorySanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-msvc-msan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-msvc-lsan",
+            "displayName": "Ninja (MSVC, RelWithDebInfo), LSAN",
+            "description": "Ninja project (compiled with MSVC in RelWithDebInfo configuration) with LeakSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-msvc-lsan"
+        },
+        {
+            "name": "ninja-relwithdebinfo-msvc-ubsan",
+            "displayName": "Ninja (MSVC, RelWithDebInfo), UBSAN",
+            "description": "Ninja project (compiled with MSVC in RelWithDebInfo configuration) with UndefinedBehaviorSanitizer",
+            "inherits": [
+                "ninja"
+            ],
+            "configurePreset": "ninja-relwithdebinfo-msvc-ubsan"
         },
         {
             "name": "ninja-release-msvc",
