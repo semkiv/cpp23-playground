@@ -1,5 +1,3 @@
-include(CheckIPOSupported)
-
 function(cpp23playground_add_executable)
     cmake_parse_arguments(
         arg
@@ -26,10 +24,13 @@ function(cpp23playground_add_executable)
     )
 
     if(CPP23_PLAYGROUND_WITH_LTO)
-        check_ipo_supported()
-        set_target_properties("${arg_NAME}" PROPERTIES
-            INTERPROCEDURAL_OPTIMIZATION_RELEASE ON
-        )
+        include(CheckIPOSupported)
+        check_ipo_supported(RESULT IPO_RESULT OUTPUT IPO_OUTPUT)
+        if(IPO_RESULT)
+            set_target_properties("${arg_NAME}" PROPERTIES INTERPROCEDURAL_OPTIMIZATION_RELEASE ON)
+        else()
+            message(WARNING "IPO is not supported: ${IPO_OUTPUT}")
+        endif()
     endif()
 
     if(CPP23_PLAYGROUND_WITH_CLANG_TIDY)

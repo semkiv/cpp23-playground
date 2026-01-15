@@ -9,8 +9,6 @@ set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD "d0edc3af-4c50-42ea-a356-e2862fe7a444")
 
 project(cpp23-playground LANGUAGES CXX)
 
-include(cmake/Cpp23Playground.cmake)
-
 set(CPP23_PLAYGROUND_TOOLS_CONCURENCY
     "1"
     CACHE
@@ -58,6 +56,11 @@ option(CPP23_PLAYGROUND_WITH_LSAN
 option(CPP23_PLAYGROUND_WITH_UBSAN
     "Controls UndefinedBehaviorSanitizer"
     OFF
+)
+
+option(CPP23_PLAYGROUND_ENABLE_IPO
+    "Enable IPO/LTO (Release builds only)"
+    ON
 )
 
 if(CPP23_PLAYGROUND_WITH_CLANG_TIDY)
