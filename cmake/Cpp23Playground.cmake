@@ -101,10 +101,12 @@ function(cpp23playground_add_executable)
             "-external:W3"
             "-utf-8"
             "-Wall"
+            "-wd5050" # Disable "Possible incompatible environment..." caused by the precompiled std module
             "-WX"
         )
 
         target_compile_definitions("${arg_NAME}" PRIVATE
+            "_ALLOW_RTCc_IN_STL"
             "_UNICODE"
             "UNICODE"
         )
