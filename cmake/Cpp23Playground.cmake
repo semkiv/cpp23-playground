@@ -226,3 +226,18 @@ function(cpp23playground_add_executable)
     endif()
 
 endfunction()
+
+function(cpp23playground_add_test)
+    cmake_parse_arguments(
+        arg
+        ""
+        "NAME"
+        "SOURCES"
+        ${ARGN}
+    )
+
+    cpp23playground_add_executable(NAME ${arg_NAME} SOURCES ${arg_SOURCES})
+    target_link_libraries(${arg_NAME}
+        PRIVATE GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
+    add_test(NAME ${arg_NAME} COMMAND ${arg_NAME})
+endfunction()

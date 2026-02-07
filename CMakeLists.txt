@@ -9,6 +9,8 @@ set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD "d0edc3af-4c50-42ea-a356-e2862fe7a444")
 
 project(cpp23-playground LANGUAGES CXX)
 
+include(CTest)
+
 set(CPP23_PLAYGROUND_TOOLS_CONCURENCY
     "1"
     CACHE
@@ -58,9 +60,19 @@ option(CPP23_PLAYGROUND_WITH_UBSAN
     OFF
 )
 
+option(CPP23_PLAYGROUND_WITH_TESTS
+    "Controls tests"
+    OFF
+)
+
 if(CPP23_PLAYGROUND_WITH_CLANG_TIDY)
     find_program(CPP23_PLAYGROUND_CLANG_TIDY NAMES "clang-tidy" REQUIRED)
     find_program(CPP23_PLAYGROUND_RUN_CLANG_TIDY NAMES "run-clang-tidy")
 endif()
 
 add_subdirectory(src)
+
+if(CPP23_PLAYGROUND_WITH_TESTS)
+    find_package(GTest CONFIG REQUIRED)
+    add_subdirectory(tests)
+endif()
