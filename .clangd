@@ -1,12 +1,14 @@
 Completion:
   CodePatterns: All
+  # TODO: does not work well with 'import std'
+  HeaderInsertion: Never
 Diagnostics:
   ClangTidy:
     FastCheckFilter: Strict
   Includes:
     AnalyzeAngledIncludes: true
   MissingIncludes: Strict
-# FIXME: Enable with Clang 22
+# TODO: Enable with Clang 22
 # Documentation:
 #   CommentFormat: Markdown
 Hover:

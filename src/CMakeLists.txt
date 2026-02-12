@@ -1,3 +1,13 @@
-include("${CMAKE_SOURCE_DIR}/cmake/Cpp23Playground.cmake")
+add_executable(runme)
+target_sources(runme
+    PRIVATE
+        main.cpp
+)
+target_link_libraries(runme
+    PRIVATE
+        compat
+        version
+)
 
-cpp23playground_add_executable(NAME runme SOURCES main.cpp)
+add_subdirectory(compat)
+add_subdirectory(version)
